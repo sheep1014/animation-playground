@@ -1,0 +1,473 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #667eea;
+  --secondary: #764ba2;
+  --bg: #0f0f23;
+  --card-bg: #1a1a2e;
+  --text: #eee;
+  --text-muted: #888;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  background-image: 
+    radial-gradient(ellipse at top, #1a1a2e 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, #667eea20 0%, transparent 50%);
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+}
+
+.header p {
+  color: var(--text-muted);
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.tab {
+  padding: 10px 20px;
+  background: var(--card-bg);
+  border: 1px solid #333;
+  border-radius: 20px;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab:hover {
+  border-color: var(--primary);
+}
+
+.tab.active {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-color: transparent;
+}
+
+/* Main */
+.main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.demo-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.demo-section {
+  padding: 20px;
+}
+
+.demo-section h3 {
+  color: var(--primary);
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.demo-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.demo-content.row {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Buttons */
+.demo-button {
+  padding: 10px 24px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.demo-button:hover {
+  transform: scale(1.05);
+}
+
+.demo-button.danger {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+/* CSS Transition */
+.box {
+  width: 100px;
+  height: 100px;
+  background: var(--primary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.css-box {
+  width: 80px;
+  height: 80px;
+}
+
+.css-box.active {
+  width: 200px;
+  height: 150px;
+  background: var(--secondary);
+  border-radius: 20px;
+}
+
+/* CSS Keyframes */
+.ball {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #ff6b6b, #feca57);
+  border-radius: 50%;
+}
+
+.ball.bounce {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-100px); }
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #333;
+  border-top-color: var(--primary);
+  border-radius: 50%;
+}
+
+.spinner.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Mini boxes */
+.mini-box {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 8px;
+}
+
+/* Scroll box */
+.scroll-box {
+  width: 100px;
+  height: 100px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.scroll-spacer {
+  height: 200px;
+}
+
+/* Spring box */
+.spring-box {
+  width: 80px;
+  height: 80px;
+  background: #ff6b6b;
+  border-radius: 10px;
+}
+
+/* Trail */
+.trail-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.trail-box {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #4ecdc4, #44a08d);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* List */
+.list-container {
+  list-style: none;
+  width: 100%;
+  max-width: 300px;
+}
+
+.list-item {
+  background: var(--card-bg);
+  border: 1px solid #333;
+  padding: 12px 20px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-item:hover {
+  background: #252540;
+}
+
+/* Drag */
+.drag-box {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  border-radius: 16px;
+  cursor: grab;
+}
+
+.drag-box:active {
+  cursor: grabbing;
+}
+
+/* Parallax */
+.parallax-container {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #1a1a2e, #16213e);
+  border-radius: 16px;
+}
+
+.parallax-box {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.box1 { top: 20%; left: 20%; }
+.box2 { top: 50%; right: 20%; }
+.box3 { bottom: 20%; left: 50%; }
+
+/* Loading */
+.loading-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.loader1 {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #333;
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loader2 {
+  width: 40px;
+  height: 40px;
+  border: 4px solid transparent;
+  border-top-color: #ff6b6b;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.loader3 {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.8); opacity: 0.5; }
+}
+
+.loader4 {
+  width: 40px;
+  height: 40px;
+  background: conic-gradient(from 0deg, #ff6b6b, #feca57, #4ecdc4, #ff6b6b);
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+
+.loader5 {
+  display: flex;
+  gap: 5px;
+}
+
+.loader5 .dot {
+  width: 10px;
+  height: 10px;
+  background: var(--primary);
+  border-radius: 50%;
+  animation: dotBounce 1.4s ease-in-out infinite;
+}
+
+.loader5 .dot:nth-child(2) { animation-delay: 0.2s; }
+.loader5 .dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dotBounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+.loader6 {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #333;
+  border-bottom-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Flip Card */
+.flip-container {
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-card {
+  width: 150px;
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.flip-front, .flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  border-radius: 16px;
+}
+
+.flip-front {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+.flip-back {
+  background: linear-gradient(135deg, #ff6b6b, #f5576c);
+  transform: rotateY(180deg);
+}
+
+/* Typewriter */
+.typewriter-text {
+  font-size: 1.5rem;
+  font-family: 'Courier New', monospace;
+  color: var(--primary);
+}
+
+.cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Background Animation */
+.bg-anim-container {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(180deg, #1a1a2e, #16213e);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  background: radial-gradient(circle, #fff, transparent);
+  border-radius: 50%;
+  bottom: 0;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+  
+  .header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .loading-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
